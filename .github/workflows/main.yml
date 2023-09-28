@@ -1,0 +1,20 @@
+name: test-deploy-based-on-push 
+on: push
+jobs:
+  echo-input:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+           node-version: 18
+      - name: install dependencies
+        run: npm ci 
+      - name: install lint
+        run: npm run lint 
+      - name: test dependencies
+        run: npm test
+      - name: build dependencies 
+        run: npm run build
+      - name: deploye dependencies 
+        run: echo "deploy"
