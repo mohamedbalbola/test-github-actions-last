@@ -5,14 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-           node-version: 18
       - name: install dependencies
         run: npm ci 
-      - name: install lint
-        run: npm init 
-        run: eslint --init
       - name: test dependencies
         run: npm run test
       - name: build dependencies 
